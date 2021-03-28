@@ -1,0 +1,20 @@
+<!--هذي الصفحة تطلع أول شيء - محتواها المعلومات الليس يشوفها المستخدم كأول شيء برضو كيف نخلي الديف الأول يختفي ويطلع الديف الثاني واللي فيه ملعومات التسجيل.-->
+<div class ="container mt-5">
+    <div *ngIf="!registerMode" style="text-align: center;">
+        <h1>Start using this app!</h1>
+        <p class="lead">قم بالانضمام!</p>
+    <div class="text-center">
+        
+        <button (click)="registerToggle()"class="btn btn-primary btn-lg mr-2">Register</button>
+        <!--here more info about the porpuse of app-->
+        <button class="btn btn-info btn-lg mr-2">للمزيد من المعلومات</button>
+    </div>
+    </div>
+    <!--here we want this div to show only when the user click on sign up-->
+    <div *ngIf="registerMode" class="container">
+        <div class="row justify-content-center"></div>
+            <div class="col-4">
+                <p>نموذج التسجيل هنا</p>
+            </div>
+    </div>
+</div>

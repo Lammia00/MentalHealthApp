@@ -1,9 +1,10 @@
 
+
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     
   <div class="container-fluid">
 
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto mt-2" *ngIf="accountService.currrentUser$ | async">
           <li class="nav-item  active">
             <a class="nav-link" href="#">Home</a>
           </li>
@@ -14,7 +15,17 @@
             <a class="nav-link" href="#">Messages</a>
           </li>
         </ul>
-        <form #loginForm="ngForm" class="from-inline mt-2 mt-md-0"(ngSubmit)="login()"
+        <! -- we want to show this only when user logged in-->
+        <div clas="dropdown" *ngIf="accountService.currrentUser$ | async" dropdown>
+          <a class="dropdown-toggle text-light" dropdowwnToggle>welcome user</a>
+          <div class="dropdown-menu mt-3"*dropdownMenu>
+            <a class="dropdown-item">Edit profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item"(click)="logout()">logout</a>
+          </div>
+        </div>
+
+        <form *ngIf="(accountService.currrentUser$ | async)=== undefined || (accountService.currrentUser$ | async)=== null" #loginForm="ngForm" class="from-inline mt-2 mt-md-0"(ngSubmit)="login()"
         autocomplete="off">
           <input 
           name="username"
@@ -32,3 +43,4 @@
         </form>
     </div>
   </nav>
+
