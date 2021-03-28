@@ -15,7 +15,8 @@
         <div class="row justify-content-center"></div>
             <div class="col-4">
                <!-- <p>نموذج التسجيل هنا</p>-->
-               <app-register [usersFromHomeComponent]="users"></app-register>
+               <!--receiving data from a parent we use square brackets, but sending data from a child we use parentheses-->
+               <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
 
             </div>
     </div>
