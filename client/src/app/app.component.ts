@@ -14,10 +14,10 @@ export class AppComponent implements OnInit {
   title = 'MentalHealthApp';
   users: any;
   
-
-  constructor(private http: HttpClient, private accountService: AccountService){}
+  //private http: HttpClient,
+  constructor( private accountService: AccountService){}
   ngOnInit(){
-    this.getUsers();
+   // this.getUsers();
     this.setCurrentUser();
   }
 
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
     this.accountService.setCurrentUser(user);
   } 
 
-  getUsers(){
+  /*getUsers(){
 
     this.http.get('https://localhost:5001/api/users').subscribe(response => {
 
@@ -41,6 +41,6 @@ export class AppComponent implements OnInit {
       console.log(error);
     })
 
-  }
+  }*/
 
 }
